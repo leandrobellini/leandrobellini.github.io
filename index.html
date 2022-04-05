@@ -51,6 +51,16 @@
         $('#login-sucess').css('visibility', 'hidden');
         $('#login-error').css('visibility', 'hidden');
 
+         // Get form
+         var form = $('#login-form')[0];
+         var data = new FormData(form);
+
+         var object = {};
+         data.forEach(function(value, key){
+            object[key] = value;
+        });
+        var json = JSON.stringify(object);
+
         event.preventDefault();
         var form = $(this);
         var actionUrl = form.attr('action');
@@ -63,7 +73,7 @@
         $.ajax({
             type: "POST",
             url: actionUrl,
-            data: JSON.stringify(dados),
+            data: json,
             success: function(data)
             {
                 console.log(data)
