@@ -17,7 +17,9 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     //HCaptcha
-    const SECRET_KEY = '0x54706B771335AEB2e98E2396780c4478589652Eb'
+    // Versão Free const SECRET_KEY = '0x54706B771335AEB2e98E2396780c4478589652Eb'
+    // Versão Enterprise
+    const SECRET_KEY = '0x6c1a67c0e194D2AE71ADDE83C9b146B8B7FBF602'
     const VERIFY_URL = 'https://hcaptcha.com/siteverify'
 
     //const name = (req.query.name || (req.body && req.body.name));
@@ -29,6 +31,14 @@ module.exports = async function (context, req) {
         {
             cpf: "01234567890",
             password: "123456"
+        }
+        {
+            cpf: "09876543210",
+            password: "654321"
+        }
+        {
+            cpf: "09988776655",
+            password: "102030"
         }
     ]
 
