@@ -31,11 +31,11 @@ module.exports = async function (context, req) {
         {
             cpf: "01234567890",
             password: "123456"
-        }
+        },
         {
             cpf: "09876543210",
             password: "654321"
-        }
+        },
         {
             cpf: "09988776655",
             password: "102030"
