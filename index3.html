@@ -10,7 +10,7 @@
       }
 
       function validate(event) {
-        event.preventDefault();
+        // event.preventDefault();
         hcaptcha.execute();
       }
 
@@ -18,15 +18,6 @@
         var element = document.getElementById('submit');
         element.onclick = validate;
       }
-	  
-	  
-		hcaptcha.execute(widgetID, { async: true })
-			.then(({ response, key }) => {
-				console.log(response, key);
-			})
-			.catch(err => {
-				console.error(err);
-			});	  
     </script>
   </head>
   <body>
@@ -39,24 +30,26 @@
                                 <div class="form-group">
                                     <label for="senha" class="text-info">Senha:</label><br>
                                     <input type="password" name="senha" id="senha" class="form-control"  maxlength="6">
-                                </div>
- <button class="h-captcha" data-sitekey="eb1af52d-327c-4e3d-bd79-99a2cbc65ba6" data-callback="onSubmit">
-  Submit
-</button>						
+                                </div>					
                                 <br>
                                 <div class="form-group">
-                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" id="submit">
+                                  <div id="hcaptcha" class="h-captcha" data-sitekey="eb1af52d-327c-4e3d-bd79-99a2cbc65ba6" data-callback="onSubmit" data-size="invisible"></div>
+                                  <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" id="submit">
                                 </div>
-                    
-                                <h6 id="login-sucess" style="color:green" >Login realizado com sucesso!</h6>
-                                <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>  
 
-      
-    </form>
+                                <h6 id="login-sucess" style="color:green" >Login realizado com sucesso!</h6>
+                                <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>
+                              </form>
     <script>
       onload();
     </script>
   </body>
+
+
+  This site is protected by hCaptcha and its
+  <a href="https://hcaptcha.com/privacy">Privacy Policy</a> and
+  <a href="https://hcaptcha.com/terms">Terms of Service</a> apply.
+
 </html>
 
 <script>
