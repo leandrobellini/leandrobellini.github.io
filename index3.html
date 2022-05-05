@@ -5,9 +5,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 		<script src="https://js.hcaptcha.com/1/api.js" async defer></script>		
     <script>
-      function onSubmit(token) {
-        alert('thanks ' + document.getElementById('cpf').value);
-      }
 
       function validate(event) {
         // event.preventDefault();
@@ -18,6 +15,12 @@
         var element = document.getElementById('submit');
         element.onclick = validate;
       }
+
+      function onSubmit(token) {
+        // alert('thanks ' + document.getElementById('cpf').value);
+        validate();
+      }
+
     </script>
   </head>
   <body>
