@@ -4,24 +4,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 		<script src="https://js.hcaptcha.com/1/api.js" async defer></script>		
-    <script>
-
-      function validate(event) {
-        // event.preventDefault();
-        hcaptcha.execute();
-      }
-
-      function onload() {
-        var element = document.getElementById('submit');
-        element.onclick = validate;
-      }
-
-      function onSubmit(token) {
-        // alert('thanks ' + document.getElementById('cpf').value);
-        validate();
-      }
-
-    </script>
   </head>
   <body>
     <form id="login-form" class="form" action="https://poc-login.azurewebsites.net/api/HttpTrigger3" method="POST" >
@@ -36,16 +18,14 @@
                                 </div>					
                                 <br>
                                 <div class="form-group">
-                                  <div id="hcaptcha" class="h-captcha" data-sitekey="eb1af52d-327c-4e3d-bd79-99a2cbc65ba6" data-callback="onSubmit" data-size="invisible"></div>
-                                  <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" id="submit">
+                                  <!-- <div id="hcaptcha" class="h-captcha" data-sitekey="eb1af52d-327c-4e3d-bd79-99a2cbc65ba6" data-callback="onSubmit" data-size="invisible"></div> -->
+								  <div id="hcaptcha" class="h-captcha" data-sitekey="eb1af52d-327c-4e3d-bd79-99a2cbc65ba6" data-size="invisible"></div>
+                                  <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" id="submit" onclick="hcaptcha.execute()">
                                 </div>
 
                                 <h6 id="login-sucess" style="color:green" >Login realizado com sucesso!</h6>
                                 <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>
                               </form>
-    <script>
-      onload();
-    </script>
   </body>
 
 
@@ -99,4 +79,10 @@
 
 
         });
+</script>
+<script type="text/javascript">
+  var yourFunction = function () {
+    console.log('hCaptcha is ready.');
+    var widgetID = hcaptcha.render('captcha-1', { sitekey: 'eb1af52d-327c-4e3d-bd79-99a2cbc65ba6' });
+  };
 </script>
