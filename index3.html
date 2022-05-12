@@ -43,6 +43,12 @@
   </body>
   #10
 </html>
+<script type="text/javascript">
+  var Check_hCaptcha = function () {
+    console.log('hCaptcha is ready.');
+    var widgetID = hcaptcha.render('captcha-1', { sitekey: 'eb1af52d-327c-4e3d-bd79-99a2cbc65ba6' });
+  };
+</script>
 <script>
     $('#login-sucess').css('visibility', 'hidden');
     $('#login-error').css('visibility', 'hidden');
@@ -52,6 +58,7 @@
         $('#login-sucess').css('visibility', 'hidden');
         $('#login-error').css('visibility', 'hidden');
 		
+		Check_hCaptcha();
 	
          // Get form
          var form = $('#login-form')[0];
@@ -90,14 +97,3 @@
 
 
         });	
-</script>
-<!--
-<script type="text/javascript">
-  function onSubmit() {
-    hcaptcha.execute();
-	document.getElementById('login-form').submit();
-  }
-  
-  hcaptcha.execute();
--->  
-</script>
