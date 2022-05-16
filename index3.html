@@ -3,8 +3,21 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-		<script src="https://js.hcaptcha.com/1/api.js?hl=pt" async defer></script>
+		<script src="https://js.hcaptcha.com/1/api.js?hl=pt&?onload=checkVisitor&render=explicit" async defer></script>
     <script>
+      var setHCField = function (response) {
+        // your code can go here if updating state in your app.
+        window.havePasscode = true;
+        // `response` will be a text string containing the passcode
+        window.curPasscode = response;
+      };
+      var setExpired = function () {
+        // set status for your app state tracking code (example)
+        window.havePasscode = false;
+        // get a new passcode.
+        // no need to specify the widgetID if only one on a page.
+        hcaptcha.execute();
+      };
       var checkVisitor = function () {
         // inject an element to use for our IFRAME
         g = document.createElement('div');
@@ -24,7 +37,7 @@
   </head>
 
   <body>
-    <form id="login-form" class="form">
+    <form id="login-form" class="form" method="POST">
       <h3 class="text-center text-info">Login</h3>
       <div class="form-group">
         <label for="cpf" class="text-info">CPF:</label><br>
@@ -54,14 +67,14 @@
       <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>
     </form>
   </body>
-  #27
+  #28
 </html>
 
 <script>
   alert('bc');
 	checkVisitor();
   alert('ac');
-  
+
 	// function SendForm(token) {
 	// 	alert('A');
 	// 	hcaptcha.execute();
