@@ -45,7 +45,7 @@
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <form id="login-form" class="form" action="https://poc-login.azurewebsites.net/api/HttpTrigger3?code=5x4fgjsZVv5LWZ4UXMG4A2RtYPaGKsiuQWdKaxaNIeIAAzFuycYW2g==" method="POST" >
+                            <form id="login-form" class="form" action="https://poc-login.azurewebsites.net/api/HttpTrigger3?code=5x4fgjsZVv5LWZ4UXMG4A2RtYPaGKsiuQWdKaxaNIeIAAzFuycYW2g==" method="POST">
                                 <h3 class="text-center text-info">Login</h3>
                                 <div class="form-group">
                                     <label for="cpf" class="text-info">CPF:</label><br>
@@ -69,7 +69,7 @@
                                 <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>
                                 
                             </form>
-                            Vs: 32
+                            Vs: 33
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,6 @@
     $('#login-sucess').css('visibility', 'hidden');
     $('#login-error').css('visibility', 'hidden');
     
-    // hcaptcha.getResponse(widgetID; optional);
-
     $( "#login-form" ).submit(function( event ) {
         $('#login-sucess').css('visibility', 'hidden');
         $('#login-error').css('visibility', 'hidden');
@@ -107,6 +105,8 @@
             senha: $("#senha").val(),
             hcaptcha: $("#hcaptcha").val()
         }
+        var _WID = hcaptcha.getResponse(widgetID; optional);
+        alert(_WID);
 
         $.ajax({
             type: "POST",
