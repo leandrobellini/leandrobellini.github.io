@@ -69,7 +69,7 @@
                                 <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>
                                 
                             </form>
-                            Vs: 33
+                            Vs: 34
                         </div>
                     </div>
                 </div>
@@ -79,50 +79,46 @@
 </html>
 
 <script>
+  $('#login-sucess').css('visibility', 'hidden');
+  $('#login-error').css('visibility', 'hidden');
+
+  $( "#login-form" ).submit(function( event ) {
     $('#login-sucess').css('visibility', 'hidden');
     $('#login-error').css('visibility', 'hidden');
-    
-    $( "#login-form" ).submit(function( event ) {
-        $('#login-sucess').css('visibility', 'hidden');
-        $('#login-error').css('visibility', 'hidden');
 
-        // Get form
-        var form = $('#login-form')[0];
-        var data = new FormData(form);
+    // Get form
+    var form = $('#login-form')[0];
+    var data = new FormData(form);
 
-        var object = {};
-        data.forEach(function(value, key){
-            object[key] = value;
-        });
-        var json = JSON.stringify(object);
+    var object = {};
+    data.forEach(function(value, key){
+      object[key] = value;
+    });
+    var json = JSON.stringify(object);
 
-        event.preventDefault();
-        var form = $(this);
-        var actionUrl = form.attr('action');
+    event.preventDefault();
+    var form = $(this);
+    var actionUrl = form.attr('action');
 
-        var dados = {
-            cpf: $("#cpf").val(),
-            senha: $("#senha").val(),
-            hcaptcha: $("#hcaptcha").val()
-        }
-        var _WID = hcaptcha.getResponse(widgetID; optional);
-        alert(_WID);
+    var dados = {
+      cpf: $("#cpf").val(),
+      senha: $("#senha").val(),
+      hcaptcha: $("#hcaptcha").val()
+    }
 
-        $.ajax({
-            type: "POST",
-            url: actionUrl,
-            data: json,
-            success: function(data)
-            {
-                console.log(data)
-                $("#login-sucess").css('visibility', 'visible');
-            },
-            error: function (data) {
-                console.log(data)
-                $("#login-error").css('visibility', 'visible');
-            },
-        });
-
-
-        });
+    $.ajax({
+      type: "POST",
+      url: actionUrl,
+      data: json,
+      success: function(data)
+      {
+        console.log(data)
+        $("#login-sucess").css('visibility', 'visible');
+      },
+      error: function (data) {
+        console.log(data)
+        $("#login-error").css('visibility', 'visible');
+      }
+    });
+  });
 </script>
