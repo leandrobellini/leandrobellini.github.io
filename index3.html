@@ -56,7 +56,7 @@
                                 <h6 id="login-error" style="color:red">Usuário e senha inválidos!</h6>
                                 
                             </form>
-                            Vs: 36
+                            Vs: 36.1
                         </div>
                     </div>
                 </div>
@@ -72,6 +72,8 @@
   $( "#login-form" ).submit(function( event ) {
     $('#login-sucess').css('visibility', 'hidden');
     $('#login-error').css('visibility', 'hidden');
+
+    setExpired();
 
     // Get form
     var form = $('#login-form')[0];
