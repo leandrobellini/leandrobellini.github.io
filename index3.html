@@ -3,11 +3,9 @@
     Login Vivo
   </title>
   <head>
-  <!--
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://js.hcaptcha.com/1/api.js?hl=pt" async defer></script> -->
     <script src="https://js.hcaptcha.com/1/api.js?onload=checkVisitor&render=explicit" async defer></script>
     <script type="text/javascript">
       var setHCField = function (response) {
@@ -57,7 +55,7 @@
                                 <h6 id="login-error" style="color:red">Usuário ou senha inválidos!</h6>
                                 
                             </form>
-                            Vs: 43
+                            Vs: 44
                         </div>
                     </div>
                 </div>
@@ -65,7 +63,7 @@
         </div>
     </body>
 </html>
-<!--
+
 <script>
   $('#login-sucess').css('visibility', 'hidden');
   $('#login-error').css('visibility', 'hidden');
@@ -106,8 +104,8 @@
       error: function (data) {
         console.log(data)
         $("#login-error").css('visibility', 'visible');
+		hcaptcha.execute(_widgetID);
       }
     });
   });
 </script>
--->
