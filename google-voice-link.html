@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Google Translate - Link URL</title>
+  </head>
+  <body>
+    <form>
+        <label for="texto">Texto:</label>
+        <input type="text" id="texto" name="texto"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <br><br>
+
+  </body>
+</html>
+
+<script>
+    window.onload = function() {
+        var form = document.querySelector("form");
+        form.onsubmit = submitted.bind(form);
+    }
+
+    function submitted(event) {
+        var conteudoTexto = document.getElementById('texto').value
+        var urlGoogle1 = "https://translate.google.com/translate_tts?ie=UTF-8&q="
+        var urlGoogle2 = "&tl=en&total=1&idx=0&textlen=11&client=tw-ob&prev=input&ttsspeed=1"
+
+        var conteudoTextoPronto = conteudoTexto.replaceAll(" ", "%20")
+
+        var stringFinal = urlGoogle1 + conteudoTextoPronto + urlGoogle2;
+
+        alert(stringFinal)
+
+    }
+</script>
